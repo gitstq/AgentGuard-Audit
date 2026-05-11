@@ -16,53 +16,56 @@ class RuleEngine:
 
     def _load_default_rules(self) -> None:
         """Load built-in compliance rules."""
+        from ..models.compliance_rule import RuleCategory
+        from ..models.audit_event import RiskLevel
+
         default_rules = [
             ComplianceRule(
                 rule_id="sensitive_data_exposure",
                 name="Sensitive Data Exposure",
                 description="Detects potential exposure of sensitive data like PII, credentials",
-                category="security",
-                risk_level="high",
+                category=RuleCategory.SECURITY,
+                risk_level=RiskLevel.HIGH,
                 config={},
             ),
             ComplianceRule(
                 rule_id="excessive_token_usage",
                 name="Excessive Token Usage",
                 description="Detects unusually high token consumption",
-                category="performance",
-                risk_level="medium",
+                category=RuleCategory.PERFORMANCE,
+                risk_level=RiskLevel.MEDIUM,
                 config={"threshold": 4000},
             ),
             ComplianceRule(
                 rule_id="unauthorized_tool_access",
                 name="Unauthorized Tool Access",
                 description="Detects access to tools not in allowed list",
-                category="security",
-                risk_level="critical",
+                category=RuleCategory.SECURITY,
+                risk_level=RiskLevel.CRITICAL,
                 config={"allowed_tools": []},
             ),
             ComplianceRule(
                 rule_id="prompt_injection",
                 name="Prompt Injection Attempt",
                 description="Detects potential prompt injection attacks",
-                category="security",
-                risk_level="critical",
+                category=RuleCategory.SECURITY,
+                risk_level=RiskLevel.CRITICAL,
                 config={},
             ),
             ComplianceRule(
                 rule_id="hallucination_risk",
                 name="Hallucination Risk",
                 description="Detects indicators of potential hallucination",
-                category="reliability",
-                risk_level="medium",
+                category=RuleCategory.RELIABILITY,
+                risk_level=RiskLevel.MEDIUM,
                 config={"threshold": 3},
             ),
             ComplianceRule(
                 rule_id="response_latency",
                 name="High Response Latency",
                 description="Detects slow responses that may indicate issues",
-                category="performance",
-                risk_level="low",
+                category=RuleCategory.PERFORMANCE,
+                risk_level=RiskLevel.LOW,
                 config={"threshold_ms": 5000},
             ),
         ]
