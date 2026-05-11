@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentguard-audit"
+version = "1.0.0"
+description = "🛡️ AgentGuard-Audit: AI Agent Runtime Behavior Compliance Audit Engine"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "Lobster Team", email = "lobster@example.com"}
+]
+keywords = [
+    "ai-agent",
+    "audit",
+    "compliance",
+    "security",
+    "monitoring",
+    "llm",
+    "ai-safety",
+    "risk-detection"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Monitoring",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/agentguard-audit"
+Documentation = "https://github.com/yourusername/agentguard-audit#readme"
+Repository = "https://github.com/yourusername/agentguard-audit"
+Issues = "https://github.com/yourusername/agentguard-audit/issues"
+
+[project.scripts]
+agentguard-audit = "agentguard_audit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
